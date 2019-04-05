@@ -38,7 +38,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_save_multiple_credentials(self):
         '''
-        test_save_multiple_credentials to check if we can save multiple credentials to out credentials list
+        test_save_multiple_credentials to check if we can save multiple credentials to our credentials list
         '''
         self.new_credentials.save_credentials()
         test_credentials = Credentials("Facebook","Ephraim2", "facebook2") #new credentials for an account
@@ -54,7 +54,7 @@ class TestCredentials(unittest.TestCase):
         test_credentials.save_credentials()
 
         self.new_credentials.delete_credentials() #Deleting credentials
-        self.assertEqual(len(Credentials.credentials_list), 1)   
+        self.assertEqual(len(Credentials.credentials_list), 1)
 
 if __name__ == '__main__':
     unittest.main()
