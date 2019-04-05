@@ -4,7 +4,7 @@ class User:
     '''
 
     user_list = [] #empty user list
-    
+
     def __init__(self, first_name, last_name, email_address, password):
         '''
         __init__ method that helps us define properties for our users
@@ -13,3 +13,9 @@ class User:
         self.last_name = last_name
         self. email_address = email_address
         self.password = password
+
+    def save_user(self):
+        '''
+        save_user method saves user into user_list
+        '''
+        User.user_list.append(self)
