@@ -12,3 +12,9 @@ class Credentials:
         self.platform  = platform
         self.user_name = user_name
         self. password = password
+
+    def save_credentials(self):
+        '''
+        save_credentials method saves user into credentials_list
+        '''
+        Credentials.credentials_list.append(self)    

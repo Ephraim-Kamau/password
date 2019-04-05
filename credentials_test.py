@@ -1,7 +1,7 @@
 import unittest #Importing the unittest module
 from credentials import Credentials #Importing the User class
 
-class TestUser(unittest.TestCase):
+class TestCredentials(unittest.TestCase):
 
     '''
     Test case that defines test cases for the user class behaviours
@@ -20,7 +20,14 @@ class TestUser(unittest.TestCase):
         '''
         self.assertEqual(self.new_credentials.platform, "Twitter")
         self.assertEqual(self.new_credentials.user_name, "Ephraim1")
-        self.assertEqual(self.new_credentials.password, "password1") 
+        self.assertEqual(self.new_credentials.password, "password1")
+
+    def test_save_credentials(self):
+        '''
+        test_save_credentials test case  to test if the user object is saved into the credentials_list
+        '''
+        self.new_credentials.save_credentials() #saving the new credentials
+        self.assertEqual(len(Credentials.credentials_list), 1)
 
 if __name__ == '__main__':
     unittest.main()
