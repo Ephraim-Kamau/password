@@ -1,0 +1,14 @@
+class Credentials:
+    '''
+    Class that generates new instances of credentials
+    '''
+
+    credentials_list = [] #empty user list
+
+    def __init__(self, platform, user_name, password):
+        '''
+        __init__ method that helps us define properties for our users
+        '''
+        self.platform  = platform
+        self.user_name = user_name
+        self. password = password
