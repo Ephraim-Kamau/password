@@ -2,7 +2,6 @@
 
 from user import User
 from credentials import Credentials
-import string
 import random
 
 def create_user(fname, lname, user1, password):
@@ -79,17 +78,6 @@ def display_credentials():
     Function that returns all the saved credentials
     '''
     return Credentials.display_credentials()
-
-def generate_password1(length):
-    password1 = []
-    count = 0
-    while (count < length/3):
-        password1.append(random.choice(string.ascii_lowercase))
-        password1.append(random.choice(string.ascii_uppercase))
-        password1.append(str(random.randint(0,9)))
-        count = count + 1
-    random.shuffle(password1)
-    return ''.join(password1)
 
 def main():
     print("Hello. Welcome to your Password Locker. Please enter the following details:")
@@ -175,19 +163,16 @@ def main():
                 print("y - Yes, n - No")
                 decision = input().lower()
                 if decision == 'y':
-                    print('\n')
-                    print("Enter the desired password length")
-                    try:
-                        length = int(input())
-                    except ValueError:
-                        print("Only numbers accepted")
-                        break
-                    password = generate_password1(length)
+                    print("Password")
+                    rands = "zxcvb123456nmasdfgh3214jkqwertyu789598"
+                    password1 = "".join(random.choice(rands) for _ in range(8))
+
                     print('\n')
                     print(f"Your new password is {password1}.")
+
                 elif decision == 'n':
-                    print("Enter the password:")
-                    password1 = input()
+                        print("Enter the password:")
+                        password1 = input()
 
                 save_credentials(create_credentials(platform, user_name, password1)) # create and save new credentials
                 print('\n')
