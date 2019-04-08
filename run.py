@@ -61,12 +61,6 @@ def del_credentials(credentials):
     '''
     credentials.delete_credentials()
 
-def find_credentials(user_name):
-    '''
-    Function that finds credentials by the user name and returns a boolean
-    '''
-    return Credentials.find_by_first_name(user_name)
-
 def check_existing_credentials(user_name):
     '''
     Function that checks if a contact exists with the user name and returns a Boolean
@@ -80,21 +74,15 @@ def display_credentials():
     return Credentials.display_credentials()
 
 def main():
-    print("Hello. Welcome to your Password Locker. Please enter the following details:")
-    print("First Name...")
-    user_first_name = input()
-    print("Last Name...")
-    user_last_name = input()
-    print("User Name...")
-    user_user1 = input()
-    print("Password...")
-    user_password = input()
+    print("Hello. Welcome to your Password Locker.")
+    print("Enter your name")
+    name = input()
 
-    print(f"Hello {user_first_name}. What would you like to do?")
+    print(f"Hello {name}. What would you like to do?")
     print("----------------------------------------------------------------")
 
     while True:
-        print("Use these short codes: \n cu - Create a new user, du - Display users, \n fu - Find a user, cc - Create new credentials, \n delc - Delete credentials, fc - Find credentials, \n dc - Display credentials,  ex - Exit")
+        print("Use these short codes: \n cu - Create a new user, du - Display users, \n cc - Create new credentials, fc - Find Credentials \n  delc - Delete credentials,  dc - Display credentials,  ex - Exit")
         print("----------------------------------------------------------------")
         short_code = input().lower()
         if short_code == 'cu':
@@ -124,7 +112,7 @@ def main():
                 print('\n')
 
                 for user in display_user():
-                    print(f"First Name:  {user.first_name} \nLast Name: {user.last_name} \nE-mail Address: {user.user1_address} \nPassword: {user.password}")
+                    print(f"First Name:  {user.first_name} \nLast Name: {user.last_name} \nUser name: {user.user1} \nPassword: {user.password}")
 
                 print("----------------------------------------------------------------")
             else:
@@ -132,22 +120,23 @@ def main():
                 print("You don't seem to have any users saved yet")
                 print("----------------------------------------------------------------")
 
-        elif short_code == 'fu':
-            print("Enter the first name you want to search for")
-
-            search_first_name = input()
-            if check_existing_user(search_first_name):
-                search_user = find_user(search_first_name)
-                print(f"{search_user.first_name} {search_user.last_name}")
-                print('-' * 20)
-
-                print(f"User name......{search_user.user1}")
-                print(f"Password......{search_user.password}")
-            else:
-                print("that user does not exist")
-                print("----------------------------------------------------------------")
-
 #Credentials
+        elif short_code == 'fc':
+            print ('\n')
+            print ('Enter the Platform you want to search for')
+            search_platform = input()
+            if check_existing_credentials(search_platform):
+                search_credentials = find_credentials(search_platform)
+                print('\n')
+                print(f"Platform:{ search_credentials.platform}")
+                print(f"User Name:{ search_credentials.account_user_name}")
+                print(f"Password:{ search_credentials.account_password}")
+                print ('\n')
+            else:
+                print('\n')
+                print("That credential does not exist!")
+                print('\n')
+
         elif short_code == 'cc':
                 print("New Credentials")
                 print("-"*10)
@@ -159,7 +148,6 @@ def main():
                 user_name  = input()
 
                 print("Password...")
-                password1 = input()
                 print("Would you like an auto-generated password?")
                 print("y - Yes, n - No")
                 decision = input().lower()
@@ -197,43 +185,30 @@ def main():
 
         elif short_code == 'delc':
             print("Enter the platform name of the credentials you want to delete")
-            delete_platform = input()
-            check_existing_credentials(delete_platform)
-            search_credentials = find_credentials(platform, delete_platform)
-            print(f"Are you sure you want to delete the {search_credentials.platform} credentials?")
+            delete_credentials = input()
+            if check_existing_credentials(delete_credentials):
+                search_credentials = find_credentials(delete_credentials)
+                print(f"Are you sure you want to delete the {search_credentials.platform} credentials?")
+                print('\n')
+                print("y - Yes, n - No")
+                print('\n')
+                decision = input().lower()
+                if decision == 'y':
+                    delete_credentials(search_credentials)
+                    print('\n')
+                    print("Credentials have been deleted")
+                    print('\n')
+                elif decision == 'n':
+                        print('\n')
+                        print("Credentials have not been deleted and are still available")
+                        print('\n')
 
-            print('\n')
-            print("y - Yes, n - No")
-            print('\n')
-            decision = input().ascii_lower()
-            if decision == 'y':fri
-            delete_credentials(search_credentials)
-            print('\n')
-            print(f"{search_credentials.platform} credentials have been deleted"    )
-            print('\n')
-            #    else:
-                #    print('\n')
-                #    print("Credentials have not been deleted and are still available")
-                #    print('\n')
+                else:
+                   print('\n')
+                   print("The credential doesn't exist")
+                   print('\n')
 
-        #    else:
-            #    print('\n')
-            #    print("The credential doesn't exist")
-            #    print('\n')
 
-        elif short_code == 'fc':
-            print("Enter the user name you want to search for")
-
-            search_user_name = input()
-            if check_existing_credentials(search_user_name):
-                search_credentials = find_credentials(search_user_name)
-                print(f"{search_credentials.platform} {search_credentials.user_name}")
-                print('-' * 20)
-
-                print(f"Password......{search_credentials.password1}")
-            else:
-                print("Those credentials do not exist")
-                print("----------------------------------------------------------------")
 
         elif short_code == 'ex':
             print("Bye....")
