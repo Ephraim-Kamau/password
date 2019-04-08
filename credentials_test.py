@@ -27,7 +27,7 @@ class TestCredentials(unittest.TestCase):
         '''
         self.assertEqual(self.new_credentials.platform, "Twitter")
         self.assertEqual(self.new_credentials.user_name, "Ephraim1")
-        self.assertEqual(self.new_credentials.password, "password1")
+        self.assertEqual(self.new_credentials.password1, "password1")
 
     def test_save_credentials(self):
         '''
@@ -69,7 +69,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_display_all_credentials(self):
         '''
-        method that returns a list of all the users
+        method that returns a list of all the credentials
         '''
         self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
 

@@ -25,7 +25,7 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(self.new_user.first_name, "Ephraim")
         self.assertEqual(self.new_user.last_name, "Kamau")
-        self.assertEqual(self.new_user.email_address, "kamau@moringa.com")
+        self.assertEqual(self.new_user.user1, "Kamash")
         self.assertEqual(self.new_user.password, "password")
 
     def test_save_user(self):
@@ -70,7 +70,7 @@ class TestUser(unittest.TestCase):
         '''
         method that returns a list of all the users
         '''
-        self.assertEqual(User.display_user(), User.user_list)    
+        self.assertEqual(User.display_user(), User.user_list)
 
 
 

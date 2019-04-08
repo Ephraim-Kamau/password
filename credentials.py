@@ -11,7 +11,7 @@ class Credentials:
         '''
         self.platform  = platform
         self.user_name = user_name
-        self. password = password
+        self. pass_word = password
 
     def save_credentials(self):
         '''
@@ -46,11 +46,3 @@ class Credentials:
         method that returns a list of all the credentials saved
         '''
         return cls.credentials_list
-
-#    def generate_password(size=10, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
-#       """
-#       generate_password helps in generating password for the user if the option is choosen
-
-#       """
-#       generated_pass = ''.join(random.choice(char)for _ in range(size))
-#       return generated_password      
