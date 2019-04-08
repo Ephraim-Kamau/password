@@ -72,7 +72,18 @@ class TestCredentials(unittest.TestCase):
         method that returns a list of all the credentials
         '''
         self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
-    
+
+        def test_find_credentials_by_platform(self):
+        '''
+        Test to check if we can find a user's credentials the platform and display the details
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Reddit", "AllBlacks", "redit3")
+        test_credentials.save_credentials()
+
+        find_credentials = Credentials.find_by_platform("Reddit")
+
+        self.assertEqual(find_credentials.account_user_name, test_credentials.account_user_name)
 
 if __name__ == '__main__':
     unittest.main()

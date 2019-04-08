@@ -184,11 +184,11 @@ def main():
 
 
         elif short_code == 'delc':
-            print("Enter the platform name of the credentials you want to delete")
+            print("Enter the platform name of the credentials you want to delete:")
             delete_credentials = input()
             if check_existing_credentials(delete_credentials):
                 search_credentials = find_credentials(delete_credentials)
-                print(f"Are you sure you want to delete the {search_credentials.platform} credentials?")
+                print(f"Are you sure you want to delete the credentials?")
                 print('\n')
                 print("y - Yes, n - No")
                 print('\n')

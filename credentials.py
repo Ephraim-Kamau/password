@@ -25,6 +25,20 @@ class Credentials:
         '''
         Credentials.credentials_list.remove(self)
 
+      @classmethod
+    def find_by_platform(cls,platform):
+        '''
+        Method that takes in a user's platform and displays his or her saved credentials
+        Args:
+            platform:platform to search for
+        Returns:
+            The Credentials saved by that user
+        '''
+
+        for credentials in cls.credentials_list:
+            if credentials.platform == platform:
+                return credentials
+
     @classmethod
     def credentials_exist(cls,user_name):
         '''
