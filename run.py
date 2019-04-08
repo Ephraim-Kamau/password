@@ -17,18 +17,6 @@ def save_user(user):
     '''
     user.save_user()
 
-def del_user(user):
-    '''
-    Function to delete a user
-    '''
-    user.delete_user()
-
-def find_user(first_name):
-    '''
-    Function that finds a contact by the first name and returns a boolean
-    '''
-    return User.find_user(first_name)
-
 def check_existing_user(first_name):
     '''
     Function that checks if a contact exists with that first name and returns a Boolean
@@ -55,9 +43,15 @@ def save_credentials(credentials):
     '''
     credentials.save_credentials()
 
-def del_credentials(credentials):
+def find_credentials(platform):
     '''
-    Function to delete credentials
+    Function that finds a credential using the platform
+    '''
+    return Credentials.find_by_platform(platform)
+
+def delete_credentials(credentials):
+    '''
+    Function that allows users to delete credentials
     '''
     credentials.delete_credentials()
 
@@ -185,9 +179,9 @@ def main():
 
         elif short_code == 'delc':
             print("Enter the platform name of the credentials you want to delete:")
-            delete_credentials = input()
-            if check_existing_credentials(delete_credentials):
-                search_credentials = find_credentials(delete_credentials)
+            delete_cred = input()
+            if check_existing_credentials(delete_cred):
+                search_credentials = find_credentials(delete_cred)
                 print(f"Are you sure you want to delete the credentials?")
                 print('\n')
                 print("y - Yes, n - No")

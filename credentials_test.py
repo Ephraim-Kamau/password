@@ -73,7 +73,7 @@ class TestCredentials(unittest.TestCase):
         '''
         self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
 
-        def test_find_credentials_by_platform(self):
+    def test_find_credentials_by_platform(self):
         '''
         Test to check if we can find a user's credentials the platform and display the details
         '''
