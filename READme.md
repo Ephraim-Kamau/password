@@ -20,7 +20,7 @@ Users can save the login credentials, delete the unnecessary ones and search for
 
 ### Technologies Used
 <ul>
-<Python 3.6</li>
+<li>Python 3.6</li>
 </ul>
 
 ### Contact Information
