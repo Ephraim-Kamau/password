@@ -5,13 +5,13 @@ class Credentials:
 
     credentials_list = [] #empty user list
 
-    def __init__(self, platform, user_name, password):
+    def __init__(self, platform, user_name, password1):
         '''
         __init__ method that helps us define properties for our users
         '''
         self.platform  = platform
         self.user_name = user_name
-        self. pass_word = password
+        self. password1 = password1
 
     def save_credentials(self):
         '''

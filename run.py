@@ -159,6 +159,7 @@ def main():
                 user_name  = input()
 
                 print("Password...")
+                password1 = input()
                 print("Would you like an auto-generated password?")
                 print("y - Yes, n - No")
                 decision = input().lower()
@@ -184,8 +185,8 @@ def main():
                 print("Here is a list of all your credentials")
                 print("----------------------------------------------------------------")
 
-                for credentials in display_credentials():
-                    print(f"Platform: {credentials.platform} \nUsername: {credentials.user_name} \nPassword: {credentials.password1}")
+                for credential in display_credentials():
+                    print(f"Platform: {credential.platform} \nUsername: {credential.user_name} \nPassword: {credential.password1}")
 
                 print("----------------------------------------------------------------")
             else:
