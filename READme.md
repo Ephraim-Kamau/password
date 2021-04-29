@@ -25,7 +25,7 @@ Users can save the login credentials, delete the unnecessary ones and search for
 </ul>
 
 ### Contact Information
- In case of any questions of feedback, contact me, send an email to kephraim19@gmail.com.
+ In case of any questions of feedback contact me via email: kephraim19@gmail.com.
 
 ### Licence
 Copyright(c) 2019 Ephraim Kamau
